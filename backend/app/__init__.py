@@ -1,0 +1,1 @@
+"""SecureShare-X modular monolith."""

@@ -1,0 +1,25 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      APP_ENV: development
+      DATABASE_URL: sqlite:////data/secureshare.db
+      STORAGE_PATH: /data/storage
+      ENABLE_ATTACK_DEMOS: "${ENABLE_ATTACK_DEMOS:-true}"
+      MAX_UPLOAD_MB: "${MAX_UPLOAD_MB:-25}"
+      LOG_LEVEL: INFO
+    volumes:
+      - encrypted-data:/data
+    restart: unless-stopped
+  frontend:
+    build: ./frontend
+    ports:
+      - "127.0.0.1:8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+volumes:
+  encrypted-data:

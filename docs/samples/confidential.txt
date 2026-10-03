@@ -1,0 +1,9 @@
+SECURESHARE-X — CONFIDENTIAL LAB SAMPLE
+
+Project: authenticated file exchange
+Sender: Alice
+Receiver: Bob
+
+This harmless sample is used to demonstrate a complete cryptographic lifecycle.
+The downloaded plaintext must match these bytes exactly.
+Changing ciphertext, signed metadata, or the authentication tag must reject it.
